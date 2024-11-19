@@ -1,0 +1,116 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/* Desactivar estilos predeterminados */
+:root {
+    --ion-color-primary: transparent;
+    --ion-color-secondary: transparent;
+    --ion-background-color: none;
+    --ion-border-radius: 0;
+}
+
+app-sidebar {
+    width: 250px;
+    /* Ajusta el ancho del sidebar */
+    flex-shrink: 0;
+    /* Evita que el sidebar se reduzca */
+    background-color: #f8f9fa;
+    /* Asegúrate de que tenga un fondo visible */
+}
+
+/* theme/variables.scss */
+:root {
+    --ion-color-primary: none;
+    --ion-color-secondary: none;
+    --ion-font-family: 'Arial', sans-serif;
+}
+
+ion-button {
+    background: none;
+    box-shadow: none;
+    border: none;
+    color: inherit;
+}
+
+/* Estilo global para ion-select-popover */
+ion-select-popover {
+    --background: #f0f0f0 !important;
+    --border-radius: 12px;
+    --max-height: 250px;
+}
+
+ion-select-popover .select-option {
+    background-color: #fff;
+    color: #333;
+    font-size: 14px;
+    padding: 10px;
+}
+
+ion-select-popover .select-option:hover {
+    background-color: #007bff;
+    color: #fff;
+}
+
+ion-menu {
+    max-width: 250px;
+    /* Ancho máximo para el menú */
+    background-color: #f8f9fa;
+    /* Color de fondo del menú */
+    color: black;
+}
+
+/* Mantener los estilos predeterminados para ion-datetime */
+ion-datetime {
+    --ion-color-primary: var(--ion-color-primary-base, #3880ff);
+    --ion-color-secondary: var(--ion-color-secondary-base, #3dc2ff);
+    --ion-background-color: var(--ion-background-color-base, #ffffff);
+    --ion-border-radius: var(--ion-border-radius-base, 4px);
+  }
+
+  /* Mantener estilos predeterminados para ion-alert */
+ion-alert {
+    --ion-color-primary: var(--ion-color-primary-base, #3880ff);
+    --ion-color-secondary: var(--ion-color-secondary-base, #3dc2ff);
+    --ion-background-color: var(--ion-background-color-base, #ffffff);
+    --ion-border-radius: var(--ion-border-radius-base, 8px);
+  }
+  
+  /* Mantener estilos predeterminados para ion-modal */
+  ion-modal {
+    --ion-color-primary: var(--ion-color-primary-base, #3880ff);
+    --ion-color-secondary: var(--ion-color-secondary-base, #3dc2ff);
+    --ion-background-color: var(--ion-background-color-base, #ffffff);
+    --ion-border-radius: var(--ion-border-radius-base, 8px);
+  }
+  
+  /* Mantener estilos predeterminados para ion-popover */
+  ion-popover {
+    --ion-color-primary: var(--ion-color-primary-base, #3880ff);
+    --ion-color-secondary: var(--ion-color-secondary-base, #3dc2ff);
+    --ion-background-color: var(--ion-background-color-base, #ffffff);
+    --ion-border-radius: var(--ion-border-radius-base, 8px);
+  }

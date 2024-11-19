@@ -1,0 +1,12 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "task-manager",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0,
+      "launchAutoHide": true,
+      "androidSplashResourceName": "splash"
+    }
+  }
+}
