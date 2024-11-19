@@ -1,0 +1,53 @@
+/* src/app/app-header/app-header.component.scss */
+
+.app-header {
+  background-color: #ffffff;
+  /* Color de fondo atractivo */
+  color: rgb(0, 0, 0);
+  /* Color del texto */
+}
+
+.app-header-logo {
+  flex: 1;
+  /* Asegura que el logo ocupe el espacio disponible */
+  text-align: center;
+  /* Centra el texto del logo */
+}
+
+.app-header h2 {
+  font-size: 1.5em;
+  /* Tamaño de fuente más grande */
+  margin: 0;
+  /* Elimina el margen por defecto */
+  font-weight: bold;
+  /* Negrita */
+}
+
+.app-header-navbar {
+  display: flex;
+  /* Alinea los botones horizontalmente */
+  align-items: center;
+  /* Centra los elementos verticalmente */
+}
+
+.profile {
+  background-color: white;
+  /* Color de fondo del botón */
+  color: black;
+  /* Color del texto del botón */
+  margin-left: 10px;
+  /* Espacio entre los botones */
+  border-radius: 7px;
+  transition: all .2s ease;
+  /* Transición suave al pasar el mouse */
+}
+
+.profile:hover {
+  background-color: #000000;
+  color: white;
+  transition: all .2s ease;
+}
+
+ion-icon {
+  margin-right: 8px;
+}

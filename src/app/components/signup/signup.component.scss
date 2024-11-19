@@ -1,0 +1,255 @@
+/* Estilos generales para el contenido de registro */
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f7f7f7;
+  height: 100%;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Estilo del encabezado */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.user-icon {
+  margin-bottom: 20px;
+  width: 100px;
+  height: auto;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+/* Efecto de hover para el icono */
+.user-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Estilos del formulario */
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  /* Centrar el formulario */
+}
+
+/* Estilo de los campos de entrada */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s;
+}
+
+/* Efecto de focus para los campos de entrada */
+.form-control:focus {
+  border-color: #007bff;
+  /* Color original */
+  outline: none;
+}
+
+/* Estilo del botón de error */
+.error-message {
+  color: red;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Estilos para el botón de registrarse */
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  /* Color original */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Efecto de hover para el botón de registrarse */
+.btn-primary:hover {
+  background-color: #0056b3;
+  /* Color original */
+}
+
+/* Asegurar que todo esté centrado */
+.signup-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+/* Estilos para el input de tipo file */
+input[type="file"] {
+  display: block;
+  /* Hace que el input ocupe una línea completa */
+  margin-top: 12px;
+  /* Espacio superior */
+  margin-bottom: 16px;
+  /* Espacio inferior */
+  padding: 8px;
+  /* Espacio interno */
+  border: 1px solid #ccc;
+  /* Borde gris */
+  border-radius: 4px;
+  /* Bordes redondeados */
+  width: 100%;
+  /* Ancho completo */
+  font-size: 1em;
+  /* Tamaño de fuente */
+  color: #555;
+  /* Color del texto */
+}
+
+input[type="file"]:focus {
+  border-color: #007bff;
+  /* Color del borde al enfocar */
+  outline: none;
+  /* Sin contorno */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  /* Sombra sutil al enfocar */
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  background-color: #007bff;
+  /* Fondo del botón */
+  color: white;
+  /* Color del texto */
+  border: none;
+  /* Sin borde */
+  padding: 8px 12px;
+  /* Espacio interno */
+  border-radius: 4px;
+  /* Bordes redondeados */
+  cursor: pointer;
+  /* Cambia el cursor al pasar el ratón */
+  font-weight: bold;
+  /* Negrita */
+  transition: background-color 0.3s;
+  /* Transición suave para el color de fondo */
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background-color: #0056b3;
+  /* Color de fondo al hacer hover */
+}
+
+.app-header {
+  background-color: #ffffff;
+  /* Color de fondo atractivo */
+  color: rgb(0, 0, 0);
+  /* Color del texto */
+}
+
+.app-header-logo {
+  flex: 1;
+  /* Asegura que el logo ocupe el espacio disponible */
+  text-align: center;
+  /* Centra el texto del logo */
+}
+
+.app-header h2 {
+  font-size: 1.5em;
+  /* Tamaño de fuente más grande */
+  margin: 0;
+  /* Elimina el margen por defecto */
+  font-weight: bold;
+  /* Negrita */
+}
+
+.app-header-navbar {
+  display: flex;
+  /* Alinea los botones horizontalmente */
+  align-items: center;
+  /* Centra los elementos verticalmente */
+}
+
+.profile {
+  background-color: white;
+  /* Color de fondo del botón */
+  color: black;
+  /* Color del texto del botón */
+  margin-left: 10px;
+  /* Espacio entre los botones */
+  border-radius: 7px;
+  transition: all .2s ease;
+  /* Transición suave al pasar el mouse */
+}
+
+.profile:hover {
+  background-color: #000000;
+  color: white;
+  transition: all .2s ease;
+}
+
+ion-icon {
+  margin-right: 8px;
+}
+
+ion-button {
+  background-color: white;
+  color: black;
+  transition: all .2s ease;
+}
+
+ion-button:hover {
+  background-color: #000000;
+  color: white;
+  transition: all .2s ease;
+}
+
+/* Asegúrate de que el contenedor esté bien posicionado */
+.signup-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Capa de fondo que cubre toda la pantalla y bloquea la interacción */
+.loading-overlay {
+  position: fixed;
+  /* Fija la capa a la pantalla */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fondo oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  /* Asegura que el spinner quede encima del formulario */
+}
+
+/* Centrar el spinner */
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+}
