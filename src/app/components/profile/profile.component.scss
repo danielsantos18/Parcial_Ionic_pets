@@ -1,0 +1,174 @@
+ion-header {
+    background-color: #333;
+    /* Color oscuro para el encabezado */
+    color: white;
+    /* Texto blanco */
+}
+
+.profile-container {
+    display: flex;
+    justify-content: center;
+    /* Centra el contenido horizontalmente */
+    align-items: center;
+    /* Centra el contenido verticalmente */
+    padding: 16px;
+    /* Espacio alrededor */
+}
+
+ion-card {
+    width: 100%;
+    /* Ancho completo */
+    max-width: 400px;
+    /* Máximo ancho para tarjetas */
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra suave */
+    overflow: hidden;
+    /* Asegura que el contenido no sobresalga */
+}
+
+ion-card-header {
+    color: white;
+    /* Color del texto */
+    display: flex;
+    align-items: center;
+    /* Centra verticalmente el contenido */
+    padding: 16px;
+    /* Espacio alrededor del contenido del encabezado */
+}
+
+ion-avatar {
+    margin-right: 16px;
+    /* Espacio a la derecha del avatar */
+    border-radius: 50%;
+    /* Asegura que el avatar sea circular */
+    overflow: hidden;
+    /* Asegura que la imagen no sobresalga */
+}
+
+ion-card-title {
+    font-size: 1.25em;
+    /* Tamaño de fuente más grande */
+    font-weight: bold;
+    /* Negrita */
+}
+
+ion-card-content {
+    padding: 16px;
+    /* Espacio alrededor del contenido de la tarjeta */
+    background-color: #ffffff;
+    /* Fondo blanco para el contenido */
+}
+
+p {
+    margin: 4px 0;
+    /* Espacio entre párrafos */
+    font-size: 0.9em;
+    /* Tamaño de fuente más pequeño */
+    color: #555;
+    /* Color del texto */
+}
+
+.buton-edit {
+    cursor: pointer;
+    transition: .2s all ease;
+    transform: scale(1.2);
+}
+
+.buton-edit:hover {
+    cursor: pointer;
+    transform: scale(1.3);
+    transition: .2s all ease;
+}
+
+ion-button {
+    margin-top: 16px;
+    border-radius: 8px;
+    color: black;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+ion-button:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Estilos para el input de tipo file */
+input[type="file"] {
+    display: block;
+    /* Hace que el input ocupe una línea completa */
+    margin-top: 12px;
+    /* Espacio superior */
+    margin-bottom: 16px;
+    /* Espacio inferior */
+    padding: 8px;
+    /* Espacio interno */
+    border: 1px solid #ccc;
+    /* Borde gris */
+    border-radius: 4px;
+    /* Bordes redondeados */
+    width: 100%;
+    /* Ancho completo */
+    font-size: 1em;
+    /* Tamaño de fuente */
+    color: #555;
+    /* Color del texto */
+}
+
+input[type="file"]:focus {
+    border-color: #007bff;
+    /* Color del borde al enfocar */
+    outline: none;
+    /* Sin contorno */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    /* Sombra sutil al enfocar */
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background-color: #007bff;
+    /* Fondo del botón */
+    color: white;
+    /* Color del texto */
+    border: none;
+    /* Sin borde */
+    padding: 8px 12px;
+    /* Espacio interno */
+    border-radius: 4px;
+    /* Bordes redondeados */
+    cursor: pointer;
+    /* Cambia el cursor al pasar el ratón */
+    font-weight: bold;
+    /* Negrita */
+    transition: background-color 0.3s;
+    /* Transición suave para el color de fondo */
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #0056b3;
+    /* Color de fondo al hacer hover */
+}
+
+/* Capa de fondo que cubre toda la pantalla y bloquea la interacción */
+.loading-overlay {
+    position: fixed;
+    /* Fija la capa a la pantalla */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    /* Asegura que el spinner quede encima del formulario */
+}
+
+/* Centrar el spinner */
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+}
