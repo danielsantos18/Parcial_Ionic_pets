@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<ion-content>
+  <app-sidebar></app-sidebar>
+  <div class="profile-container">
+    <ion-card>
+      <ion-card-header>
+        <ion-avatar>
+          <img *ngIf="user.image; else defaultAvatar" [src]="user.image" alt="Avatar de Usuario">
+          <ng-template #defaultAvatar>
+            <img
+              src='https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg'
+              alt="Avatar de Usuario">
+          </ng-template>
+        </ion-avatar>
+        <ion-card-title>Perfil del Usuario</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <ion-item>
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="user.name" [readonly]="!isFieldEditable('name')"></ion-input>
+          <ion-icon class="buton-edit" name="create" slot="end" (click)="toggleEdit('name')"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Apellido</ion-label>
+          <ion-input type="text" [(ngModel)]="user.lastName" [readonly]="!isFieldEditable('lastName')"></ion-input>
+          <ion-icon class="buton-edit" name="create" slot="end" (click)="toggleEdit('lastName')"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Email</ion-label>
+          <ion-input type="email" [(ngModel)]="user.email" [readonly]="!isFieldEditable('email')"></ion-input>
+          <ion-icon class="buton-edit" name="create" slot="end" (click)="toggleEdit('email')"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Edad</ion-label>
+          <ion-input type="number" [(ngModel)]="user.age" [readonly]="!isFieldEditable('age')"></ion-input>
+          <ion-icon class="buton-edit" name="create" slot="end" (click)="toggleEdit('age')"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Teléfono</ion-label>
+          <ion-input type="tel" [(ngModel)]="user.phone" [readonly]="!isFieldEditable('phone')"></ion-input>
+          <ion-icon class="buton-edit" name="create" slot="end" (click)="toggleEdit('phone')"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Imagen</ion-label>
+          <ion-button expand="full" (click)="fileInput.click()">
+            Seleccionar Imagen
+          </ion-button>
+          <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" style="display: none;" />
+          <img *ngIf="user.image" [src]="user.image" alt="Imagen de Perfil"
+            style="width: 100px; height: 100px; margin-top: 10px;">
+        </ion-item>
+
+        <ion-button expand="full" color="black" (click)="updateProfile()" [disabled]="isLoading">
+          Guardar Cambios
+        </ion-button>
+
+        <!-- Spinner 
+        <ion-item *ngIf="isLoading">
+          <ion-label>Actualizando perfil...</ion-label>
+          <ion-spinner name="dots"></ion-spinner>
+        </ion-item>-->
+        <!-- Overlay de carga -->
+
+      </ion-card-content>
+    </ion-card>
+  </div>
+  <div *ngIf="isLoading" class="loading-overlay">
+    <ion-spinner name="circles" class="loading-spinner"></ion-spinner>
+  </div>
+</ion-content>
+
+<app-footer></app-footer>
