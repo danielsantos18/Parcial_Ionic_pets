@@ -1,0 +1,81 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    <div class="app-header-logo">
+    </div>
+    <ion-buttons slot="end" class="app-header-navbar">
+      <ion-button class="profile" routerLink="/login">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        LOGIN
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="signup-container">
+    <h2 class="header">Registro de Usuario</h2>
+    <img
+      src="https://static.vecteezy.com/system/resources/previews/005/129/844/non_2x/profile-user-icon-isolated-on-white-background-eps10-free-vector.jpg"
+      alt="User Icon" class="user-icon" />
+
+    <!-- Formulario de Registro -->
+    <form (ngSubmit)="register()" #signupForm="ngForm" class="login-form">
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input type="text" [(ngModel)]="name" name="name" required [disabled]="isLoading"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input type="text" [(ngModel)]="lastName" name="lastName" required [disabled]="isLoading"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input type="email" [(ngModel)]="email" name="email" required [disabled]="isLoading"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" [(ngModel)]="password" name="password" required [disabled]="isLoading"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Edad</ion-label>
+        <ion-input type="number" [(ngModel)]="age" name="age" required [disabled]="isLoading"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Teléfono</ion-label>
+        <ion-input type="tel" [(ngModel)]="phone" name="phone" required [disabled]="isLoading"></ion-input>
+      </ion-item>
+
+      <!-- Campo de imagen -->
+      <ion-item>
+        <ion-label></ion-label>
+        <label class="file-input-label">
+          <span *ngIf="!imageAdded">Agregar Imagen</span>
+          <span *ngIf="imageAdded">Imagen Agregada</span>
+          <input type="file" (change)="onFileSelected($event)" class="file-input" [disabled]="isLoading" />
+        </label>
+      </ion-item>
+
+      <!-- Mensaje de error -->
+      <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+      <!-- Botón de submit -->
+      <ion-button expand="full" type="submit" [disabled]="isLoading">Registrarse</ion-button>
+
+      <!-- Spinner de carga 
+      <ion-item *ngIf="isLoading">
+        <ion-label>Registrando...</ion-label>
+        <ion-spinner name="dots"></ion-spinner>
+      </ion-item>-->
+    </form>
+  </div>
+
+  <!-- Overlay de carga -->
+  <div *ngIf="isLoading" class="loading-overlay">
+    <ion-spinner name="circles" class="loading-spinner"></ion-spinner>
+  </div>
+</ion-content>
