@@ -1,0 +1,97 @@
+/* src/app/sidebar/sidebar.component.scss */
+
+ion-menu {
+    max-width: 270px;
+    /* Ancho máimo para el menú */
+    background-color: #f8f9fa;
+    /* Color de fondo del menú */
+    color: black;
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Alinea el contenido al inicio */
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    width: auto;
+    /* Añade padding alrededor del contenido */
+}
+
+.user-info {
+    margin-top: 15px;
+    text-align: center;
+    /* Centra el texto dentro del div */
+    margin-bottom: 20px;
+    /* Espacio debajo del perfil */
+}
+
+.user-info h1 {
+    font-size: 24px;
+    /* Tamaño de fuente más grande para el nombre */
+    color: #333;
+    /* Color del texto */
+    margin: 10px 0;
+    /* Espacio arriba y abajo */
+}
+
+.profile-image {
+    width: 120px;
+    /* Aumenta el tamaño según sea necesario */
+    height: 120px;
+    /* Mantiene la proporción */
+    border-radius: 50%;
+    /* Hacer la imagen redonda */
+    border: 2px solid #4CAF50;
+    /* Color del borde */
+    object-fit: cover;
+    /* Asegura que la imagen se ajuste sin distorsionarse */
+    margin: 0 auto;
+    /* Centrar la imagen si es necesario */
+    display: block;
+    /* Asegura que la imagen sea un bloque */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra sutil */
+    transition: transform 0.2s;
+    /* Suaviza la transformación */
+}
+
+.profile-image:hover {
+    transform: scale(1.05);
+    /* Aumenta un poco el tamaño al pasar el mouse */
+}
+
+ion-list {
+    width: 100%;
+    /* Asegura que la lista ocupe todo el ancho */
+    margin: 0;
+    /* Elimina márgenes en la lista para un mejor ajuste */
+}
+
+ion-item {
+    transition: background-color 0.2s, transform 0.2s;
+    /* Transiciones suaves */
+    cursor: pointer;
+    /* Cambia el cursor al pasar sobre el elemento */
+    border-radius: 8px;
+    /* Bordes redondeados para los elementos del menú */
+}
+
+ion-item:hover {
+    background-color: #007bff !important;
+    /* Color de fondo al hacer hover */
+    color: white;
+    /* Cambia el color del texto al hacer hover */
+    transform: scale(1.05);
+    /* Aumenta un poco el tamaño al pasar el mouse */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    /* Sombra al hacer hover */
+}
+
+ion-toolbar {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
