@@ -1,0 +1,24 @@
+<!-- src/app/home/home.component.html -->
+<app-header></app-header>
+<ion-content>
+  <ion-split-pane contentId="main-content">
+    <app-sidebar></app-sidebar> <!-- Sidebar -->
+    <ion-content id="main-content">
+      <div class="welcome-container">
+        <h1 class="welcome-message">¡Bienvenido, {{ user.name }}!</h1>
+      </div>
+      <div class="button-container">
+        <div class="button-item" (click)="goToPets()">
+          <img src="assets/images/pets.png" alt="Gestionar Mascota" class="button-image" />
+          <ion-button class="button">Gestionar Mascota</ion-button>
+        </div>
+        <div class="button-item" (click)="goToVaccines()">
+          <img src="assets/images/vaccines.png" alt="Gestionar Vacunas" class="button-image" />
+          <ion-button class="button">Gestionar Vacunas</ion-button>
+        </div>
+      </div>
+    </ion-content>
+  </ion-split-pane>
+</ion-content>
+<app-footer></app-footer>
+

@@ -1,0 +1,25 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" side="start">
+      <ion-toolbar>
+        <h2>Menu</h2>
+      </ion-toolbar>
+      <ion-content class="menu-content">
+        <div class="user-info">
+          <img [src]="user.image" alt="Imagen de perfil" class="profile-image" (click)="goToHome()" />
+          <div>
+            <h1>{{ user.name }}</h1>
+          </div>
+        </div>
+
+        <ion-list>
+          <ion-item (click)="goToPets()" class="menu-item">My pets</ion-item>
+          <ion-item (click)="goToVaccines()" class="menu-item">Add Vaccines</ion-item>
+          <ion-item (click)="logout()" class="menu-item">Logout</ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

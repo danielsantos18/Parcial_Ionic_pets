@@ -1,0 +1,53 @@
+.footer {
+    background: #28282B;
+    /* Color de fondo */
+    color: #ffffff;
+    /* Color del texto */
+    text-align: center;
+    /* Centrar texto */
+    padding: 10px 0;
+    /* Espaciado superior e inferior */
+}
+
+.footer-title {
+    font-size: 1rem;
+    /* Tamaño de fuente */
+    margin-bottom: 15px;
+    /* Espaciado inferior */
+    font-weight: bold;
+    /* Negrita */
+}
+
+.social-icon {
+    display: flex;
+    /* Utilizar flexbox para centrar */
+    justify-content: center;
+    /* Centrar horizontalmente */
+    margin: 10px 0;
+    /* Espaciado vertical */
+}
+
+.social-icon__link {
+    font-size: 2rem;
+    /* Tamaño de los iconos */
+    color: #ffffff;
+    /* Color del icono */
+    margin: 0 15px;
+    /* Espaciado entre iconos */
+    transition: transform 0.2s, color 0.2s;
+    /* Transición suave */
+}
+
+.social-icon__link:hover {
+    transform: scale(1.1);
+    /* Aumentar tamaño al pasar el mouse */
+    color: #FFD700;
+    /* Cambiar color al pasar el mouse */
+}
+
+.footer-text {
+    margin-top: 10px;
+    /* Espaciado superior */
+    font-size: 0.9rem;
+    /* Tamaño de texto */
+}
