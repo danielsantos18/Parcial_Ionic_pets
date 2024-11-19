@@ -1,0 +1,83 @@
+/* src/app/home/home.component.scss */
+
+.welcome-container {
+    background-color: #f0f8ff; /* Color de fondo suave */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    text-align: center; /* Centrar el texto */
+    margin: 20px; /* Margen externo */
+  }
+  
+  .welcome-message {
+    font-size: 2em; /* Tamaño de fuente más grande */
+    color: #333; /* Color del texto */
+    font-weight: bold; /* Negrita */
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-around; /* Espacio entre los botones */
+    margin-top: 20px; /* Espacio superior */
+  }
+  
+  .button-item {
+    display: flex;
+    flex-direction: column; /* Coloca la imagen encima del botón */
+    align-items: center; /* Centra la imagen y el botón */
+    margin-bottom: 20px; /* Espacio entre los elementos */
+    width: 150px; /* Ancho fijo para cada botón */
+  }
+  
+  .button-image {
+    width: 120px; /* Ajusta el tamaño según sea necesario */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 10px; /* Espacio entre la imagen y el botón */
+    transition: transform 0.2s; /* Transición suave */
+  }
+  
+  .button-image:hover {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen al pasar el mouse */
+  }
+  
+  /* From Uiverse.io by Creatlydev */
+/* From Uiverse.io by CristianMontoya98 */ 
+.button {
+  width: 150px;
+  padding: 5px;
+  height: auto;
+  margin: 5px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+ }
+ 
+ .button:hover {
+  color: black;
+ }
+ 
+ .button:after {
+  content: "";
+  background: white;
+  position: absolute;
+  z-index: -1;
+  left: -20%;
+  right: -20%;
+  top: 0;
+  bottom: 0;
+  transform: skewX(-45deg) scale(0, 1);
+  transition: all 0.3s;
+ }
+ 
+ .button:hover:after {
+  transform: skewX(-45deg) scale(1, 1);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+ }
+
+ 
