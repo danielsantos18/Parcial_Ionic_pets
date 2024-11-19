@@ -1,0 +1,114 @@
+<app-header></app-header>
+
+<ion-content>
+  <div class="layout-container"> <!-- Contenedor principal -->
+    <app-sidebar></app-sidebar>
+    <div class="pets-container">
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Gestionar Mascotas</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <form [formGroup]="petForm" (ngSubmit)="onSubmit()">
+            <ion-item>
+              <div class="input-group">
+                <ion-label position="stacked" class="label">Nombre de la Mascota</ion-label>
+                <ion-input formControlName="name" class="input" type="ion-textarea"></ion-input>
+                <ion-note *ngIf="petForm.get('name')?.invalid && petForm.get('name')?.touched" color="danger">
+                  El nombre es obligatorio.
+                </ion-note>
+              </div>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked">Especie</ion-label>
+              <ion-select formControlName="species" (ionChange)="onSpeciesChange()">
+                <ion-select-option *ngFor="let species of speciesOptions" [value]="species">{{ species
+                  }}</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked">Raza</ion-label>
+              <ion-select formControlName="breed">
+                <ion-select-option *ngFor="let breed of breedOptions" [value]="breed">{{ breed }}</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked" class="label">Fecha de Nacimiento</ion-label>
+              <ion-button class="buttonf" (click)="toggleDatePicker()">
+                <ion-icon name="calendar-outline"></ion-icon>
+                {{ showDatePicker ? 'Ocultar Calendario' : 'Mostrar Calendario' }}
+              </ion-button>
+            </ion-item>
+
+            <ion-item>
+              <ion-datetime *ngIf="showDatePicker" display-format="YYYY-MM-DD"
+                formControlName="birthDate"></ion-datetime>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="stacked" class="label">Foto de la Mascota</ion-label>
+              <ion-button (click)="fileInput.click()" class="buttonf">
+                <ion-icon name="image-outline"></ion-icon>
+                Seleccionar Foto
+              </ion-button>
+              <input type="file" #fileInput (change)="onFileSelected($event)" accept="image/*" style="display: none;" />
+              <img *ngIf="petForm.get('photoUrl')?.value" [src]="petForm.get('photoUrl')?.value" alt="Foto"
+                style="width: 100px; height: 100px; margin-top: 10px;">
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label position="stacked" class="label">Notas</ion-label>
+              <ion-input formControlName="notes" class="input"></ion-input>
+            </ion-item>
+
+            <ion-button expand="full" type="submit" class="buttone" [disabled]="petForm.invalid || loading">
+              {{ loading ? 'Cargando...' : (currentPetId ? 'Actualizar Mascota' : 'Agregar Mascota') }}
+            </ion-button>
+
+            <!-- Spinner
+            <ion-item *ngIf="loading">
+              <ion-label>Guardando cambios...</ion-label>
+              <ion-spinner name="dots"></ion-spinner>
+            </ion-item> -->
+          </form>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>Lista de Mascotas</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <ion-list>
+            <ion-item *ngFor="let pet of pets">
+              <ion-thumbnail slot="start">
+                <img [src]="pet.photoUrl || 'assets/default-pet.png'" alt="Foto de la mascota">
+              </ion-thumbnail>
+              <ion-label>
+                <h2>{{ pet.name }}</h2>
+                <p>Especie: {{ pet.species }}</p>
+                <p>Raza: {{ pet.breed }}</p>
+                <p>Fecha de Nacimiento: {{ pet.birthDate }}</p>
+              </ion-label>
+              <ion-button class="buttone" slot="end" (click)="editPet(pet)">Editar Mascota</ion-button>
+              <ion-button class="buttone" slot="end" color="danger"
+                (click)="confirmDeletePet(pet.id)">Eliminar</ion-button>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+  <!-- Overlay de carga -->
+  <div *ngIf="loading" class="loading-overlay">
+    <ion-spinner name="circles" class="loading-spinner"></ion-spinner>
+  </div>
+</ion-content>
+
+<app-footer></app-footer>
