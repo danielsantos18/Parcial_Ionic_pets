@@ -1,0 +1,99 @@
+<app-header></app-header>
+
+<ion-content>
+  <div class="layout-container">
+    <app-sidebar></app-sidebar>
+    <div class="vaccine-container">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Agregar Vacuna</ion-title>
+        </ion-toolbar>
+      </ion-header>
+
+      <!-- Lista de Mascotas -->
+      <ion-list>
+        <ion-item *ngFor="let pet of pets" (click)="selectPet(pet.id)"
+          [ngClass]="{'selected': selectedPetId === pet.id}">
+          <ion-thumbnail slot="start">
+            <img [src]="pet.photoUrl || 'assets/default-pet.png'" alt="Foto de la mascota">
+          </ion-thumbnail>
+          <ion-label>
+            <h2>{{ pet.name }}</h2>
+            <p>Especie: {{ pet.species }}</p>
+            <p>Raza: {{ pet.breed }}</p>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+
+      <!-- Formulario para agregar vacuna -->
+      <form [formGroup]="vaccineForm" (ngSubmit)="onSubmit()" *ngIf="selectedPetId">
+        <ion-item>
+          <ion-label position="stacked" class="label">Nombre de la Vacuna</ion-label>
+          <ion-input formControlName="name" class="input" type="ion-textarea"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked" class="label">Fecha de Aplicación</ion-label>
+          <ion-button class="buttonf" (click)="toggleDatepicker()">
+            <ion-icon name="calendar-outline"></ion-icon>
+            {{ showDatepicker ? 'Ocultar Calendario' : 'Mostrar Calendario' }}
+          </ion-button>
+        </ion-item>
+
+        <div *ngIf="showDatepicker">
+          <ion-datetime display-format="YYYY-MM-DD" formControlName="applicationDate" [max]="maxDate"></ion-datetime>
+        </div>
+
+        <ion-item>
+          <ion-label position="stacked" class="label">Notas</ion-label>
+          <ion-input formControlName="notes" class="input"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked" class="label">Subir PDF</ion-label>
+          <input type="file" (change)="onFileSelected($event)" accept=".pdf" style="display:none;" #pdfInput />
+          <ion-button expand="full" class="buttonf" (click)="openFileSelector()">
+            <ion-icon name="folder-outline"></ion-icon>
+            {{ pdfUploaded ? 'PDF cargado' : 'Seleccionar PDF' }}
+          </ion-button>
+        </ion-item>
+
+
+        <ion-button class="buttone" expand="full" type="submit" [disabled]="vaccineForm.invalid || loading">
+          {{ selectedVaccineId ? 'Actualizar Vacuna' : 'Agregar Vacuna' }}
+        </ion-button>
+      </form>
+
+      <!-- Lista de Vacunas Registradas -->
+      <ion-list *ngIf="vaccines.length > 0">
+        <ion-header>
+          <ion-toolbar>
+            <ion-title>Vacunas Registradas</ion-title>
+          </ion-toolbar>
+        </ion-header>
+        <ion-item *ngFor="let vaccine of vaccines">
+          <ion-label>
+            <h2>{{ vaccine.name }}</h2>
+            <p>Fecha de Aplicación: {{ vaccine.applicationDate | date }}</p>
+            <p>Notas: {{ vaccine.notes }}</p>
+            <p *ngIf="vaccine.pdfUrl">PDF: <a [href]="vaccine.pdfUrl" target="_blank">Ver PDF</a></p>
+          </ion-label>
+          <ion-button slot="end" (click)="selectVaccine(vaccine)">Editar</ion-button>
+          <ion-button slot="end" color="danger" (click)="deleteVaccine(vaccine.id)">Eliminar</ion-button>
+        </ion-item>
+      </ion-list>
+
+      <!-- Mensaje si no hay vacunas registradas -->
+      <ion-item *ngIf="vaccines.length === 0 && selectedPetId">
+        <ion-label>
+          <h2>No hay vacunas registradas para esta mascota.</h2>
+        </ion-label>
+      </ion-item>
+    </div>
+  </div>
+  <div *ngIf="loading" class="loading-overlay">
+    <ion-spinner name="circles" class="loading-spinner"></ion-spinner>
+  </div>
+</ion-content>
+
+<app-footer></app-footer>

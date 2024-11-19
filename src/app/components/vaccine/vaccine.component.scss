@@ -1,0 +1,201 @@
+.layout-container {
+  display: flex;
+  /* Utiliza flexbox para alinear el sidebar y el contenido */
+}
+
+app-sidebar {
+  width: 250px;
+  /* Ajusta el ancho del sidebar */
+  flex-shrink: 0;
+  /* Evita que el sidebar se reduzca */
+  background-color: #f8f9fa;
+  /* Asegúrate de que tenga un fondo visible */
+}
+
+.vaccine-container {
+  flex: 1;
+  /* Permite que el contenido principal ocupe el espacio restante */
+  padding: 16px;
+  /* Espacio alrededor del contenido principal */
+  margin-left: 16px;
+  /* Espacio a la izquierda para separar del sidebar */
+}
+
+ion-item {
+  display: flex;
+  /* Utiliza flexbox para alinear los elementos */
+  justify-content: space-between;
+  /* Espacio entre el label y el botón */
+
+}
+
+ion-label {
+  flex: 1;
+  /* Permite que el label ocupe el espacio restante */
+  margin-right: 8px;
+  /* Espacio a la derecha del label */
+}
+
+ion-button {
+  --padding-start: 8px;
+  /* Ajusta el padding para que el botón no sea tan ancho */
+  --padding-end: 8px;
+  /* Ajusta el padding para que el botón no sea tan ancho */
+}
+
+// vaccine.component.scss
+
+@keyframes scale-up {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.02);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+ion-item {
+  margin: 15px 0px;
+}
+
+ion-item.selected {
+  background-color: #e0f7fa;
+  /* Color de fondo para la mascota seleccionada */
+  border-left: 4px solid #007aff;
+  /* Borde a la izquierda para resaltar */
+  animation: scale-up 0.3s;
+  /* Aplica la animación */
+}
+
+ion-thumbnail img {
+  width: 50px;
+  /* Ajusta el tamaño de la imagen */
+  height: 50px;
+  /* Ajusta el tamaño de la imagen */
+}
+
+.input {
+  width: 400px;
+  height: auto;
+  background-color: #0000000a;
+  border-radius: .5rem;
+  padding: 5px;
+  margin: 5px 0px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  transition: border-color .3s cubic-bezier(.25, .01, .25, 1) 0s, color .3s cubic-bezier(.25, .01, .25, 1) 0s, background .2s cubic-bezier(.25, .01, .25, 1) 0s;
+}
+
+.label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #00000099;
+  transition: color .3s cubic-bezier(.25, .01, .25, 1) 0s;
+}
+
+.input:hover,
+.input:focus,
+.input-group:hover .input {
+  outline: none;
+  border-color: #000000;
+}
+
+.input-group:hover .label,
+.input:focus {
+  color: #000000c2;
+}
+
+
+.buttonf {
+  padding: 0px;
+  height: 35px;
+  border: unset;
+  border-radius: 7px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 600;
+  font-size: 14px;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+}
+
+.buttonf::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 10px;
+  background-color: #212121;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms
+}
+
+.buttonf:hover {
+  color: #e8e8e8;
+}
+
+.buttonf:hover::before {
+  width: 100%;
+}
+
+ion-icon {
+  margin-right: 7px;
+}
+
+.buttone {
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+  height: 30px;
+  transition: all .2s ease;
+}
+
+.buttone:hover {
+  border-radius: 5px;
+  background-color: #000000;
+  color: white;
+  transition: all .2s ease;
+}
+
+ion-datetime {
+  margin: 10px 0px;
+  border-radius: 5px;
+}
+
+
+/* Capa de fondo que cubre toda la pantalla y bloquea la interacción */
+.loading-overlay {
+  position: fixed;
+  /* Fija la capa a la pantalla */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fondo oscuro semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  /* Asegura que el spinner quede encima del formulario */
+}
+
+/* Centrar el spinner */
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+}
